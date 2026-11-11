@@ -1,6 +1,6 @@
 import {
   convertToModelMessages,
-  stepCountIs,
+  isStepCount,
   streamText,
   type LanguageModel,
   type UIMessage,
@@ -18,10 +18,10 @@ export async function streamSupportReply(
 ) {
   return streamText({
     model: options.model ?? MODEL,
-    system: SYSTEM_PROMPT,
+    instructions: SYSTEM_PROMPT,
     messages: await convertToModelMessages(messages),
     tools,
-    stopWhen: stepCountIs(5),
-    onFinish: ({ usage }) => options.onUsage?.(toUsageReport(usage)),
+    stopWhen: isStepCount(5),
+    onEnd: ({ finalStep }) => options.onUsage?.(toUsageReport(finalStep.usage)),
   });
 }

@@ -1,4 +1,4 @@
-import { generateText, stepCountIs, type LanguageModel } from "ai";
+import { generateText, isStepCount, type LanguageModel } from "ai";
 import { MODEL } from "./model";
 import { tools } from "./tools";
 import { toUsageReport, type UsageReport } from "./usage";
@@ -13,10 +13,10 @@ export async function answerQuestion(
 ): Promise<{ text: string; finalStepUsage: UsageReport }> {
   const result = await generateText({
     model: options.model ?? MODEL,
-    system: "Answer the customer's question. Look orders up when they mention one.",
+    instructions: "Answer the customer's question. Look orders up when they mention one.",
     prompt: question,
     tools,
-    stopWhen: stepCountIs(5),
+    stopWhen: isStepCount(5),
   });
-  return { text: result.text, finalStepUsage: toUsageReport(result.usage) };
+  return { text: result.text, finalStepUsage: toUsageReport(result.finalStep.usage) };
 }

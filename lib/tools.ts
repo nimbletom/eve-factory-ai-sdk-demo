@@ -1,10 +1,10 @@
-import { tool, type ToolCallOptions } from "ai";
+import { tool, type ToolExecutionOptions } from "ai";
 import { z } from "zod";
 import { findOrder } from "./orders";
 
 export async function lookupOrderExecute(
   { orderId }: { orderId: string },
-  options: ToolCallOptions,
+  options: ToolExecutionOptions<Record<string, unknown>>,
 ) {
   const order = findOrder(orderId);
   return order

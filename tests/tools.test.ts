@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { lookupOrderExecute } from "../lib/tools";
 
-const options = { toolCallId: "call-1", messages: [] };
+const options = { toolCallId: "call-1", messages: [], context: {} };
 
 describe("lookupOrder", () => {
   it("finds a known order", async () => {

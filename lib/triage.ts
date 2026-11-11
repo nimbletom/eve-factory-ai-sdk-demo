@@ -17,9 +17,9 @@ export async function triageTicket(
 ): Promise<Triage> {
   const result = await generateText({
     model: options.model ?? MODEL,
-    system: "Classify the support ticket. Summarize it in one sentence.",
+    instructions: "Classify the support ticket. Summarize it in one sentence.",
     prompt: ticket,
-    experimental_output: Output.object({ schema: triageSchema }),
+    output: Output.object({ schema: triageSchema }),
   });
-  return result.experimental_output;
+  return result.output;
 }

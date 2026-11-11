@@ -12,7 +12,7 @@ export function toUsageReport(usage: LanguageModelUsage): UsageReport {
   return {
     inputTokens: usage.inputTokens ?? 0,
     outputTokens: usage.outputTokens ?? 0,
-    cachedInputTokens: usage.cachedInputTokens ?? 0,
-    reasoningTokens: usage.reasoningTokens ?? 0,
+    cachedInputTokens: usage.inputTokenDetails.cacheReadTokens ?? 0,
+    reasoningTokens: usage.outputTokenDetails.reasoningTokens ?? 0,
   };
 }

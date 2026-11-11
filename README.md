@@ -1,8 +1,8 @@
-# Support Desk (AI SDK 6)
+# Support Desk (AI SDK 7)
 
 A small Next.js support chat: it answers questions about orders, looks orders up with a tool, triages tickets into a structured shape, and logs token usage.
 
-**It stays on AI SDK 6 on purpose.** This repo is the practice target for the [Nimble × eve Software Factory cookbook](#): point the factory at a fork of it, open an issue asking to upgrade the AI SDK to v7, and watch the factory find the migration guide with Nimble, make the change, run these checks and open a draft PR.
+This repo is the practice target for the [Nimble × eve Software Factory cookbook](#): it started on AI SDK 6 on purpose, and has since been upgraded to AI SDK 7 by the factory following the official migration guide.
 
 ## Checks
 
@@ -13,7 +13,7 @@ npm test        # Vitest with mock models: no API key needed
 npm run build
 ```
 
-All three pass on AI SDK 6. Upgrading the `ai` package to v7 without migrating the code breaks them.
+All three pass on AI SDK 7.
 
 ## Run it locally
 

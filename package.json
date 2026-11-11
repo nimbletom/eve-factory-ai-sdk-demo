@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "A small Next.js support chat on AI SDK 6, kept on v6 on purpose: it's the target repo for the Nimble × eve Software Factory cookbook.",
+  "description": "A small Next.js support chat on AI SDK 7, kept on v6 on purpose: it's the target repo for the Nimble × eve Software Factory cookbook.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,11 +12,11 @@
     "test": "vitest run"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "dependencies": {
-    "@ai-sdk/react": "3.0.329",
-    "ai": "6.0.326",
+    "@ai-sdk/react": "4.0.173",
+    "ai": "7.0.169",
     "next": "16.4.5",
     "react": "19.2.1",
     "react-dom": "19.2.1",

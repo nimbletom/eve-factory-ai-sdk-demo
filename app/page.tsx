@@ -1,7 +1,7 @@
 "use client";
 
 import { useChat } from "@ai-sdk/react";
-import { getToolOrDynamicToolName, isToolOrDynamicToolUIPart } from "ai";
+import { getToolOrDynamicToolName, isToolUIPart } from "ai";
 import { useState } from "react";
 
 export default function Page() {
@@ -16,7 +16,7 @@ export default function Page() {
           <strong>{message.role === "user" ? "You" : "Agent"}:</strong>
           {message.parts.map((part, i) => {
             if (part.type === "text") return <span key={i}> {part.text}</span>;
-            if (isToolOrDynamicToolUIPart(part)) {
+            if (isToolUIPart(part)) {
               return <em key={i}> (checked {getToolOrDynamicToolName(part)})</em>;
             }
             return null;

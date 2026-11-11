@@ -14,4 +14,15 @@ describe("toUsageReport", () => {
       reasoningTokens: 20,
     });
   });
+
+  it("defaults missing usage details to zero", async () => {
+    const model = scriptedModel([{ text: "ok", input: 10, output: 5 }]);
+    const result = await generateText({ model, prompt: "hi" });
+    expect(toUsageReport(result.usage)).toEqual({
+      inputTokens: 10,
+      outputTokens: 5,
+      cachedInputTokens: 0,
+      reasoningTokens: 0,
+    });
+  });
 });
